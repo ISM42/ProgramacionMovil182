@@ -3,7 +3,7 @@
 
 Functions are a piece of code that we can reuse over and over again in our code.*/
 
-Syntax:
+//Syntax:
 	function NAME(){
 	CODE //BODY
 	}

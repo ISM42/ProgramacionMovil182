@@ -28,7 +28,7 @@ const calcAverage = (score1, score2, score3) => (score1 + score2 + score3)/3;
 console.log(calcAverage(3,4,5)); // just to try it
 
 const scoreDolphins = calcAverage(85,54,41);
-const scoreKoalas = calcAverage(23,34,27);
+const scoreKoalas = calcAverage(23,34,27 );
 console.log(scoreDolphins, scoreKoalas); 
 
 function checkWinner(avgDolphins, avgKoalas){
