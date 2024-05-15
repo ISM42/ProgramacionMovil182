@@ -1,0 +1,90 @@
+
+Es un framework de Javascript creado por Facebook para crear aplicaciones móviles nativas.
+
+                                                         CARACTERÍSTICAS
+
+1. Escrito en JS: renderizado con código nativo.
+2. Permite crear aplicaciones nativas y no compromete las experiencias de sus usuarios
+3. Los componentes de React envuelven el código nativo existente e interactúan con las API nativas a través del paradigma de usuarios  
+   declarativo de React y JS.
+4. Se pueden ver los cambios tan pronto como se guardan. Las iteraciones son rápidas.
+
+Es distinto a React para proyectos WEB.
+
+
+                                                        CUESTIONARIO
+
+    I. ¿Cómo funciona React Native?
+    ---------------------------------
+        React Native utiliza interfaces de programación de aplicaciones (APIs) nativas para renderizar componentes de interfaces de 
+        usuario móvil en Objective-C (iOS) o Java (Android). Gracias a ello, los desarrolladores pueden crear componentes específicos
+         para cada plataforma y compartir el código fuente en varias de ellas.
+
+        No utiliza etiquetas HTML debido a la falta de soporte de DOM.
+
+        utiliza la hoja de estilos JS para el estilo.
+
+    II. Elementos de una aplición de React Native (descripción para cada uno).
+    ----------------------------------------------------------------------------
+        Las aplicaciones de React Native se componen de 3 elementos principalmente:
+
+        *Código nativo: Un proyecto de React Native puede contener código nativo en combinación con el código de JavaScript, es decir,
+         si se está desarrollando una app para Android se puede tener código de JAVA aparte del proyecto de JavaScript.
+
+        *JavaScriptCore VM: Las aplicaciones de ReactNative utilizan JavaScriptCore, el motor de ejecución de JavaScript de Safari para 
+        ejecutar el código de JavaScript de la app, esto significa que el código que se escribe de JavaScript no será compilado, será
+         ejecutado como JavaScript dentro de la app, es por eso que no es 100% nativo, porque internamente hay una máquina virtual 
+         que ejecuta el código de JavaScript.
+
+        *React Native Bridge: Como su nombre lo dice, el React Native Bridge es un puente que se encarga de comunicar el código de la
+         máquina virtual de JavaScript con el código nativo y las APIs nativas de la plataforma en la que se ejecuta la aplicación.
+
+        * El Virtual DOM es una representación virtual, como su nombre indica, de cómo se deben mostrar los componentes en la interfaz, 
+        de cómo se hará el render.
+
+        COMPONENTES MÁS COMUNES:
+
+        <VIEW>: Un contenedor que admite el diseño con flexbox, estilo, algunos controles táctiles y de accesibilidad
+
+        <TEXT>: Muestra, aplica estilo y anida cadenas de texto e incluso controla eventos táctiles
+
+        <IMAGE>: Muestra diferentes tipos de imágenes
+
+        <SCROLLVIEW>: Un contenedor de desplazamiento genérico que puede contener varios componentes y vistas
+
+        <TEXTINPUT>: Permite al usuario introducir texto
+
+
+    III. ¿Es posible el desarrollo de juegos móviles?
+    -------------------------------------------------
+        Sí. React Native cuenta con algunas bibliotecas para el desarrollo de juegos móviles.
+
+    IV. ¿Trabaja fuera de Android & IOS?
+    ------------------------------------
+    Sí. Es posible trabajar con ambas plataformas pero también se está comenzando a implementar para creación de aplicaciones de escritorio
+    con Windows.
+
+
+    V. Ventajas
+    -----------
+    -Se puede desarrollar aplicaciones para Android y IOS sin la necesidad de tener proyectos separados.
+    -Es fácil de usar. Los desarrolladores con conocimientos de JS pueden aprender rápidamente a utilizar React en poco tiempo.
+
+
+    VI. Desventajas
+    ---------------
+    -React Native combina lo que es el poder de Javascript con código móvil nativo por lo que uno como desarrollador tiene que saber las
+     bases de programación nativa si desea crear una aplicación compleja que aproveche los recursos del sistema operativo para el que se
+     desarrolla.
+
+     -React Native al usar Javascript se topa con ciertas vulnerabilidades.
+
+     -Testeo y depuración, el proceso de depurar y testear la aplicación es un poco más lento y difícil a comparación del desarrollo nativo
+
+
+    REFERENCIAS:
+    -----------
+
+            https://www.hostinger.mx/tutoriales/que-es-react
+
+            https://reactnative.dev/docs/getting-started
