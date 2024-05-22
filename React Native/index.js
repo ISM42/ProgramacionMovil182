@@ -5,14 +5,14 @@ function suma(a, b) {
 }
 
 //funcion fatArrow
-const suma = (a, b) => {
+const suma2 = (a, b) => {
   return a + b;
 };
 
 // fatArrow simplificada
-const suma = (a, b) => a + b;
+const suma3 = (a, b) => a + b;
 
-console.log(suma(5, 2));
+console.log(suma3(5, 2));
 
 //OBJETOS
 
@@ -30,4 +30,27 @@ const usuario = {
   amigos: ["Alex", "Carlos"],
 
   estatus: true,
+  enviaCorreo: (enviarCorr = () => "enviando..."),
 };
+
+console.log(usuario);
+console.log(usuario.amigos);
+
+console.log(usuario.enviaCorreo());
+
+//TRABAJO CON EL DOM
+
+const titulo = document.createElement("h1");
+titulo.innerText = "Soy un título creado con JS";
+document.body.append(titulo);
+
+const boton = document.createElement("button");
+boton.innerText = "Presióname";
+document.body.append(boton);
+
+//eventos
+boton.addEventListener("click", function () {
+  //console.log("Evento click ejecutado");
+  titulo.innerText = "Evento click ejecutado";
+  alert("Éxito");
+});
