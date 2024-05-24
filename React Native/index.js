@@ -1,6 +1,6 @@
 console.log("Hola mundo");
 
-function suma(a, b) {
+/*function suma(a, b) {
   return a + b;
 }
 
@@ -54,3 +54,59 @@ boton.addEventListener("click", function () {
   titulo.innerText = "Evento click ejecutado";
   alert("Éxito");
 });
+
+//TRABAJO CON ARREGLOS
+
+const nombres = ["Alan", "Isa", "Pablo", "Juan Luis"];
+
+/*for (let i = 0; i < nombres.length; i++) {
+  const elemento = nombres[i];
+  console.log(elemento);
+}
+
+//alternativa con foreach
+nombres.forEach(function (nombre) {
+  console.log(nombre);
+}); 
+
+//FUNCIÓN MAP PERMITE GENERAR COPIA DE UN ARRAY
+const array2 = nombres.map(function (nombre) {
+  console.log(nombre);
+  return nombre;
+});
+
+console.log(nombres);
+console.log(array2);
+
+//FUNCIÓN FIND: ubicar elementos en un arreglo
+const resultado = nombres.find(function (nombre) {
+  if (nombre === "Pablo") {
+    return nombre;
+  }
+});
+
+console.log(resultado);
+
+//FUNCIÓN FILTER: recorre el arreglo filtrando el resultado
+const resultado2 = nombres.filter(function (nombre) {
+  if (nombre != "Pablo") {
+    return nombre;
+  }
+});
+
+console.log(nombres);
+console.log(resultado2);
+
+//Función CONCAT:
+const edades = [78, 89, 12, 8, 10, 15];
+console.log(nombres.concat(edades));
+
+//SPREAD OPERATOR tiene la misma función que CONCAT
+console.log([...nombres, ...edades]); */
+
+//MÓDULOS: IMPORT & EXPORT
+
+import * as calc from "./calculadora.js";
+
+console.log(calc.suma(45, 54));
+console.log(calc.resta(45, 54));
