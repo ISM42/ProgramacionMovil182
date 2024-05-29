@@ -1,4 +1,4 @@
-console.log("Hola mundo");
+//console.log("Hola mundo");
 
 /*function suma(a, b) {
   return a + b;
@@ -102,11 +102,55 @@ const edades = [78, 89, 12, 8, 10, 15];
 console.log(nombres.concat(edades));
 
 //SPREAD OPERATOR tiene la misma función que CONCAT
-console.log([...nombres, ...edades]); */
+console.log([...nombres, ...edades]); 
 
 //MÓDULOS: IMPORT & EXPORT
 
 import * as calc from "./calculadora.js";
 
 console.log(calc.suma(45, 54));
-console.log(calc.resta(45, 54));
+console.log(calc.resta(45, 54)); */
+
+//---------------------- ASINCRONÍA CON JS------------------------//
+
+//ejemplo de promesa
+/*const ul = document.createElement("ul");
+
+let datos = fetch("https://jsonplaceholder.typicode.com/posts")
+  .then(function (Response) {
+    console.log("Carga de datos completada");
+    return Response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    data.forEach(function (post) {
+      const li = document.createElement("li");
+      li.innerHTML = post.title;
+      ul.append(li);
+    });
+    document.body.append(ul);
+  });
+
+console.log("Cargando HTML");
+console.log("Cargando CSS");
+console.log("Cargando imágenes");*/
+
+//Ejemplo con Async Await (mismo ejemplo que el anterior pero simplificado)
+const ul = document.createElement("ul");
+
+async function cargarDatos() {
+  const Response = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const datos = await Response.json();
+  console.log(datos);
+  datos.forEach(function (post) {
+    const li = document.createElement("li");
+    li.innerHTML = post.title;
+    ul.append(li);
+  });
+  document.body.append(ul);
+}
+
+cargarDatos();
+console.log("Cargando HTML"); //estos console.log solamente nos sirven para observar el orden en que se ejecutan las tareas del programa
+console.log("Cargando CSS");
+console.log("Cargando imágenes");
