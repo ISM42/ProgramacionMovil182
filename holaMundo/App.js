@@ -1,6 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TextInput,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 
 export default function App() {
   const [count, setCount] = useState(0);
@@ -11,14 +19,41 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.countContainer}>
-        <Text style={styles.countText}> Número de toques: {count}</Text>
-      </View>
-      <TouchableWithoutFeedback onPress={onPress}>
-        <View style={styles.button}>
-          <Text>Toca aquí</Text>
-        </View>
-      </TouchableWithoutFeedback>
+      <ScrollView style={styles.scrollView}>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+        <Text style={styles.countText}>Prueba scroll</Text>
+      </ScrollView>
+
       <StatusBar style="auto" />
     </View>
   );
@@ -44,5 +79,8 @@ const styles = StyleSheet.create({
   countText: {
     color: "#FF00FF",
     fontSize: 18,
+  },
+  scrollView: {
+    width: Dimensions.get("window").width,
   },
 });
