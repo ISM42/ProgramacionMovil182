@@ -1,46 +1,42 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, SectionList } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  ActivityIndicator,
+} from "react-native";
 
 export default function App() {
+  const [user, setUser] = useState([]); //definir y asignar usuarios
+  const [loading, setLoading] = useState(true); //definir los estados de carga de la información del usuario (simuulación de la carga)
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users") //cargar usuarios
+      .then((response) => response.json()) //convertilo a json
+      .then((data) => {
+        setUser(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return (
+      <View style={styles.center}>
+        <ActivityIndicator size="large" color="#0000ff" />
+        <Text>Cargando...</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
-      <SectionList
-        sections={[
-          {
-            titulo: "Grupo A",
-            data: [
-              { key: 1, name: "Ivan Isay" },
-              { key: 2, name: "Victor" },
-              { key: 3, name: "Elias" },
-              { key: 4, name: "Alan" },
-            ],
-          },
-          {
-            titulo: "Grupo B",
-            data: [
-              { key: 5, name: "Pablo" },
-              { key: 6, name: "Lilian" },
-              { key: 7, name: "Monse" },
-              { key: 8, name: "José" },
-            ],
-          },
-          {
-            titulo: "Grupo C",
-            data: [
-              { key: 9, name: "Alberto" },
-              { key: 10, name: "Mariana" },
-              { key: 11, name: "Ricardo" },
-              { key: 12, name: "Esteban" },
-            ],
-          },
-        ]}
-        renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
-        renderSectionHeader={({ section }) => (
-          <Text style={styles.sectionHeader}>{section.titulo}</Text>
-        )}
+      <FlatList
+        data={user}
+        renderItem={({ item }) => <Text>{item.name}</Text>}
       />
-
       <StatusBar style="auto" />
     </View>
   );
@@ -69,5 +65,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     backgroundColor: "#f2f2f2",
+  },
+  center: {
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
   },
 });
