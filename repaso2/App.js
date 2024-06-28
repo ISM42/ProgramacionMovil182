@@ -9,7 +9,6 @@ import {
   StyleSheet,
   StatusBar,
   FlatList,
-  Alert,
 } from "react-native";
 
 export default function App() {
@@ -20,7 +19,7 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
-  const [showNoResultsAlert, setShowNoResultsAlert] = useState(false); // Estado para controlar la visibilidad del alerta
+  const [showNoResultsAlert, setShowNoResultsAlert] = useState(false);
 
   const data = [
     { id: "1", name: "Rojo Amanecer" },
@@ -49,18 +48,18 @@ export default function App() {
     setShowResults(true);
 
     if (results.length === 0 && searchQuery.trim() !== "") {
-      setShowNoResultsAlert(true); // Mostrar alerta si no hay resultados y la búsqueda no está vacía
+      setShowNoResultsAlert(true);
     }
   };
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
-      <Text>{item.name}</Text>
+      <Text style={styles.itemText}>{item.name}</Text>
     </View>
   );
 
   const hideAlert = () => {
-    setShowNoResultsAlert(false); // Función para ocultar el alerta
+    setShowNoResultsAlert(false);
   };
 
   return (
@@ -102,33 +101,23 @@ export default function App() {
 
         <StatusBar style="auto" />
 
-        {/* Alerta para mostrar cuando no hay resultados */}
-        <AlertModal
-          visible={showNoResultsAlert}
-          title="Sin resultados"
-          message="No se encontraron películas que coincidan con la búsqueda."
-          onClose={hideAlert}
-        />
+        {showNoResultsAlert && (
+          <View style={styles.alertContainer}>
+            <View style={styles.alertBox}>
+              <Text style={styles.alertTitle}>Sin resultados</Text>
+              <Text style={styles.alertMessage}>
+                No se encontraron películas que coincidan con la búsqueda.
+              </Text>
+              <TouchableOpacity style={styles.alertButton} onPress={hideAlert}>
+                <Text style={styles.alertButtonText}>OK</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
       </ImageBackground>
     </View>
   );
 }
-
-const AlertModal = ({ visible, title, message, onClose }) => {
-  if (!visible) return null;
-
-  return (
-    <View style={styles.alertContainer}>
-      <View style={styles.alertBox}>
-        <Text style={styles.alertTitle}>{title}</Text>
-        <Text style={styles.alertMessage}>{message}</Text>
-        <TouchableOpacity style={styles.alertButton} onPress={onClose}>
-          <Text style={styles.alertButtonText}>OK</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -155,6 +144,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 5,
     color: "blue",
+    fontWeight: "bold",
   },
   input: {
     borderWidth: 1,
@@ -178,6 +168,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#ffffff",
     fontSize: 16,
+    fontWeight: "bold",
   },
   textTítulo: {
     fontSize: 40,
@@ -196,14 +187,22 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: "#d3d3d3",
+    fontWeight: "bold",
+    alignItems: "center",
+    fontFamily: "Arial nova",
+  },
+  itemText: {
+    fontWeight: "bold",
+    fontSize: 16,
   },
   flatlistContainer: {
     alignItems: "center",
     justifyContent: "center",
-    flexGrow: 1,
   },
   alertContainer: {
-    flex: 1,
+    position: "absolute",
+    width: "100%",
+    height: "100%",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
